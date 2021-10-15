@@ -1,3 +1,4 @@
+//forecast.js is for interacting with weather api
 
 const key = '9HlKRDeGD4cYkzacaYU7dEvMAyO7Rkv3';
 
@@ -29,9 +30,4 @@ const getCity = async (city) => {
 
 };
 
-getCity('tokyo').then(data => {//gets the location key to get the weather in location
-    return getWeather(data.Key);
-  }).then(data => {
-    console.log(data);
-  }).catch(error => console.log(error));
 
