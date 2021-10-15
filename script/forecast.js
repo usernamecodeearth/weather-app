@@ -1,6 +1,6 @@
 //forecast.js is for interacting with weather api
 
-const key = '9HlKRDeGD4cYkzacaYU7dEvMAyO7Rkv3';
+const key = 'JSq081LkY1dchE0dwcPkKt0ConMY86DS';
 
 //gets weather information
 const getWeather = async (id) => {//location id
