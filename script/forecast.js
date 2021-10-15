@@ -5,7 +5,7 @@ const key = 'JSq081LkY1dchE0dwcPkKt0ConMY86DS';
 //gets weather information
 const getWeather = async (id) => {//location id
 
-  const base = 'http://dataservice.accuweather.com/currentconditions/v1/';
+  const base = 'https://dataservice.accuweather.com/currentconditions/v1/';
   const query = `${id}?apikey=${key}`;//location id is from location key 
   
   const response = await fetch(base + query);//await the promise until it resolves
@@ -17,7 +17,7 @@ const getWeather = async (id) => {//location id
 //gets city information
 const getCity = async (city) => {
   
-  const base = 'http://dataservice.accuweather.com/locations/v1/cities/search';
+  const base = 'https://dataservice.accuweather.com/locations/v1/cities/search';
   const query = `?apikey=${key}&q=${city}`;
   //? adds a query parameter
 
