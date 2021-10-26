@@ -4,9 +4,9 @@ const card = document.querySelector('.card');
 const details = document.querySelector('.details');
 const time = document.querySelector('img.time');
 const icon = document.querySelector('.icon img')//div with icon class, and img inside that
+const forecast = new Forecast();
 
 const updateUI = (data) => {
-
   //destructure properties
   const {cityDetails, weather} = data;
   
@@ -14,7 +14,6 @@ const updateUI = (data) => {
     const cityDetails = data.cityDetails;
     const weather = data.weather;
   */
-
 
   //update details template 
   details.innerHTML = 
@@ -46,22 +45,7 @@ const updateUI = (data) => {
 };
 
 
-const updateCity = async (city) => {
-  
-const cityDetails = await getCity(city);
-const weather = await getWeather(cityDetails.Key);
 
-//returning objects
-return {cityDetails, weather};
-/*if property name and value are the same, can delete first text.
-  Originally appeared as: 
-   
-  cityDetails: cityDetails,
-  weather: weather
-   
-   */
-
-};
 
 
 formCity.addEventListener('submit', e => {
@@ -72,7 +56,7 @@ formCity.addEventListener('submit', e => {
   formCity.reset();//clears out the form field
 
   //update UI with new city
-  updateCity(city)
+  forecast.updateCity(city)
   .then(data => updateUI(data))
   .catch(error => console.log(error));
 
@@ -81,7 +65,7 @@ formCity.addEventListener('submit', e => {
 });
 
 if(localStorage.getItem('location')){
-  updateCity(localStorage.getItem('location'))
+  forecast.updateCity(localStorage.getItem('location'))
   .then(data => updateUI(data))
   .catch(error => console.log(error))
 };
